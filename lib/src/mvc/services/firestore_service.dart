@@ -16,6 +16,7 @@ class FirestoreService<T> {
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
   Stream<List> searchData(String query) {
+    query = query.toLowerCase();
     final collectionReference = firebaseFirestore.collection(collectionName!);
     return query.isEmpty
         ? Stream.empty()
